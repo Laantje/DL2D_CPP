@@ -29,6 +29,9 @@ std::string vertex_shader	= "shaders/sprite.vert";
 
 int main( void )
 {
+	//Render* renderer = new Renderer();
+	//Sprite* sprite = new Sprite();
+
 	// Initialise GLFW
 	if( !glfwInit() )
 	{

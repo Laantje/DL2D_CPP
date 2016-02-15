@@ -1,6 +1,6 @@
 # CMake entry point
 cmake_minimum_required (VERSION 2.6)
-project (RT2D)
+project (DL2DCPP)
 
 find_package(OpenGL REQUIRED)
 
@@ -32,12 +32,14 @@ include_directories(
 	external/glfw-3.0.3/include/GLFW/
 	external/glm-0.9.7.0/
 	external/glew-1.9.0/include/
+	/dl2dcpp/
 	.
 )
 
 set(ALL_LIBS
 	${OPENGL_LIBRARY}
 	GLFW_303
+	dl2dcpp
 	GLEW_190
 )
 
@@ -49,15 +51,31 @@ add_definitions(
 	-D_CRT_SECURE_NO_WARNINGS
 )
 
-# Demo
-add_executable(demo
-	demo/demo.cpp
+# DL2D
+add_library(dl2dcpp
 	dl2dcpp/shader.cpp
 	dl2dcpp/camera.cpp
 	dl2dcpp/texture.cpp
 	dl2dcpp/renderer.cpp
 	dl2dcpp/sprite.cpp
 )
+
+file(
+	COPY dl2dcpp/shaders
+	DESTINATION ${CMAKE_BINARY_DIR}
+)
+
+
+# Demo
+add_executable(demo
+	demo/demo.cpp	
+)
+
+file(
+	COPY demo/assets
+	DESTINATION ${CMAKE_BINARY_DIR}
+)
+
 target_link_libraries(demo
 	${ALL_LIBS}
 )
@@ -78,14 +96,3 @@ if (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
 elseif (${CMAKE_GENERATOR} MATCHES "Xcode" )
 
 endif (NOT ${CMAKE_GENERATOR} MATCHES "Xcode" )
-
-
-# Copy assets to the build directory
-file(
-	COPY demo/assets
-	DESTINATION ${CMAKE_BINARY_DIR}
-)
-file(
-	COPY demo/shaders
-	DESTINATION ${CMAKE_BINARY_DIR}
-)
