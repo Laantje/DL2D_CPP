@@ -55,6 +55,8 @@ add_executable(demo
 	dl2dcpp/shader.cpp
 	dl2dcpp/camera.cpp
 	dl2dcpp/texture.cpp
+	dl2dcpp/renderer.cpp
+	dl2dcpp/sprite.cpp
 )
 target_link_libraries(demo
 	${ALL_LIBS}
