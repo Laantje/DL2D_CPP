@@ -17,6 +17,7 @@
 #include <dl2dcpp/shader.h>
 #include <dl2dcpp/texture.h>
 #include <dl2dcpp/camera.h>
+#include <dl2dcpp/sprite.h>
 
 GLFWwindow* window;
 
@@ -27,7 +28,7 @@ std::string texture_file = "assets/uvtemplate.DDS";
 std::string fragment_shader = "shaders/sprite.frag";
 std::string vertex_shader = "shaders/sprite.vert";
 
-int main(void)
+int renderer(void)
 {
 	// Initialise GLFW
 	if (!glfwInit())

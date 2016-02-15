@@ -17,6 +17,7 @@
 #include <dl2dcpp/shader.h>
 #include <dl2dcpp/texture.h>
 #include <dl2dcpp/camera.h>
+#include <dl2dcpp/renderer.h>
 
 GLFWwindow* window;
 

@@ -54,10 +54,15 @@ add_definitions(
 # DL2D
 add_library(dl2dcpp
 	dl2dcpp/shader.cpp
+	dl2dcpp/shader.h
 	dl2dcpp/camera.cpp
+	dl2dcpp/camera.h
 	dl2dcpp/texture.cpp
+	dl2dcpp/texture.h
 	dl2dcpp/renderer.cpp
+	dl2dcpp/renderer.h
 	dl2dcpp/sprite.cpp
+	dl2dcpp/sprite.h
 )
 
 file(
