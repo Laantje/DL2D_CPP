@@ -14,9 +14,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
-#include <common/shader.h>
-#include <common/texture.h>
-#include <common/camera.h>
+#include <dl2dcpp/shader.h>
+#include <dl2dcpp/texture.h>
+#include <dl2dcpp/camera.h>
 
 GLFWwindow* window;
 

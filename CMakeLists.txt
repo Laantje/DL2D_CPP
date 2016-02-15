@@ -52,9 +52,9 @@ add_definitions(
 # Demo
 add_executable(demo
 	demo/demo.cpp
-	common/shader.cpp
-	common/camera.cpp
-	common/texture.cpp
+	dl2dcpp/shader.cpp
+	dl2dcpp/camera.cpp
+	dl2dcpp/texture.cpp
 )
 target_link_libraries(demo
 	${ALL_LIBS}
@@ -64,7 +64,7 @@ set_target_properties(demo PROPERTIES XCODE_ATTRIBUTE_CONFIGURATION_BUILD_DIR "$
 create_target_launcher(demo WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/demo/")
 
 
-SOURCE_GROUP(common REGULAR_EXPRESSION ".*/common/.*" )
+SOURCE_GROUP(d2ld REGULAR_EXPRESSION ".*/dl2d/.*" )
 SOURCE_GROUP(shaders REGULAR_EXPRESSION ".*/.*shader$" )
 
 
