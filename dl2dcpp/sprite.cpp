@@ -5,7 +5,7 @@ Sprite::Sprite(std::string filename)
 	std::string texture_file = filename;
 
 	// Load the texture (see: texture.h/cpp)
-	_texture = loadBMP_custom(texture_file.c_str());
+	_texture = loadTGA(&textures[0], texture_file.c_str());
 
 	// Our vertices. Tree consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
 	// A sprite has 1 face (quad) with 2 triangles each, so this makes 1*2=2 triangles, and 2*3 vertices
