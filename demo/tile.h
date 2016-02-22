@@ -11,18 +11,18 @@ public:
 	Tile(int x, int y, int tileType);
 
 	//Shows the tile
-	//void render(SDL_Rect& camera);
+	void render(glRectf& camera);
 
 	//Get the tile type
 	int getType();
 
 	//Get the collision box
-	//SDL_Rect getBox();
+	glRectf getBox();
 
 private:
 	//The attributes of the tile
 	
-	glRect mBox;
+	glRectf mBox;
 
 	//The tile type
 	int mType;

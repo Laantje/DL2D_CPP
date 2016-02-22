@@ -13,3 +13,8 @@ Tile::Tile(int x, int y, int tileType)
 	//Get the tile type
 	mType = tileType;
 }
+
+int Tile::getType()
+{
+	return mType;
+}
