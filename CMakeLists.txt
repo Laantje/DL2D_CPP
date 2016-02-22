@@ -73,7 +73,9 @@ file(
 
 # Demo
 add_executable(demo
-	demo/demo.cpp	
+	demo/demo.cpp
+	demo/map.cpp
+	demo/map.h	
 )
 
 file(
