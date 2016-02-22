@@ -8,6 +8,71 @@
 
 #include "texture.h"
 
+GLuint loadTGA(const char * imagepath, int filter, int wrap)
+{
+	printf("Reading image %s\n", imagepath);
+
+	// Open the file
+	FILE * file = fopen(imagepath, "rb");
+	unsigned char type[4];
+	unsigned char info[6];
+	if (!file) {
+		printf("Can't open %s.\n", imagepath);
+		getchar();
+		return 0;
+	}
+
+	size_t s;
+	s = fread(&type, sizeof(char), 3, file);
+	fseek(file, 12, SEEK_SET);
+	s = fread(&info, sizeof(char), 6, file);
+
+	if (type[1] != 0 || (type[2] != 2 && type[2] != 3))
+	{
+		printf("image type neither color or grayscale");
+		fclose(file);
+		return false;
+	}
+
+	PixelBuffer* pixels = new PixelBuffer();
+
+	pixels->width = info[0] + info[1] * 256;
+	pixels->height = info[2] + info[3] * 256;
+	pixels->bitdepth = info[4] / 8;
+	pixels->filter = filter;
+	pixels->wrap = wrap;
+
+	if (pixels->bitdepth != 1 && pixels->bitdepth != 3 && pixels->bitdepth != 4) {
+		printf("bytecount not 1, 3 or 4");
+		fclose(file);
+		return false;
+	}
+
+	long file_size = pixels->width * pixels->height * pixels->bitdepth;
+
+	//allocate memory for image data
+	pixels->data = new unsigned char[file_size];
+
+	//read in image data
+	s = fread(pixels->data, sizeof(unsigned char), file_size, file);
+	if (s == 0) return false;
+
+	//close file
+	fclose(file);
+
+	// BGR(A) to RGB(A)
+	if (pixels->bitdepth == 3 || pixels->bitdepth == 4) {
+		BGR2RGB(pixels);
+	}
+
+	// Generate the OpenGL Texture
+	createFromBuffer(pixels);
+
+	delete pixels;
+
+	return _gltexture[0];
+}
+
 GLuint loadBMP_custom(const char * imagepath)
 {
 	printf("Reading image %s\n", imagepath);
