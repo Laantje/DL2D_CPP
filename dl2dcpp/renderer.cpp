@@ -19,6 +19,8 @@
 #include <dl2dcpp/camera.h>
 #include <dl2dcpp/sprite.h>
 
+#include "renderer.h"
+
 GLFWwindow* window;
 
 int window_width = 1280;
@@ -28,7 +30,7 @@ std::string texture_file = "assets/uvtemplate.DDS";
 std::string fragment_shader = "shaders/sprite.frag";
 std::string vertex_shader = "shaders/sprite.vert";
 
-int renderer(void)
+Renderer::Renderer()
 {
 	// Initialise GLFW
 	if (!glfwInit())
@@ -210,4 +212,8 @@ int renderer(void)
 	glfwTerminate();
 
 	return 0;
+}
+
+void renderSprite() {
+
 }
