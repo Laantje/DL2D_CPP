@@ -15,7 +15,7 @@
 int main( void )
 {
 	Renderer renderer;
-	Sprite* sprite = new Sprite("assets/island.bmp");
+	Sprite* sprite = new Sprite("assets/testimage.tga");
 
 	do {
 		// Clear the screen
