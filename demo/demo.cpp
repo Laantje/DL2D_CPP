@@ -12,10 +12,13 @@
 #include <dl2dcpp/renderer.h>
 #include <dl2dcpp/sprite.h>
 
+#include <demo/map.h>
+
 int main( void )
 {
 	Renderer renderer;
 	Sprite* sprite = new Sprite("assets/testimage.tga", 128, 128);
+	//Map* map = new Map();
 
 	do {
 		// Clear the screen
