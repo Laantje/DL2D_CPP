@@ -1,8 +1,3 @@
-// Include standard headers
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-
 #include "sprite.h"
 
 Sprite::Sprite(std::string filename)
