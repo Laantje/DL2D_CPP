@@ -1,6 +1,10 @@
 #include "demo/map.h"
+#include "dl2dcpp/sprite.h"
+#include "dl2dcpp/renderer.h"
 
 Map::Map() {
+	//Sprite* tilesheet = new Sprite("assets/tilesheet.tga", 1024, 1024);
+
 	int cMap[32][32] = { //my tile map
 		{10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10},
 		{10,6,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,7,10},
@@ -40,4 +44,5 @@ Map::Map() {
 }
 
 Map::~Map() {
+	//delete tilesheet;
 }

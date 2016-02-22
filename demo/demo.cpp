@@ -24,7 +24,7 @@ int main( void )
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		renderer.renderSprite(sprite);
+		renderer.renderSprite(sprite, 600.0f, 500.0f);
 
 		// Swap buffers
 		glfwSwapBuffers(renderer.window());

@@ -8,7 +8,7 @@ public:
 	virtual ~Map();
 
 private:
-
+//	Sprite* tilesheet;
 };
 
 #endif /* MAP_H */

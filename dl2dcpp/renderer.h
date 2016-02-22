@@ -28,7 +28,7 @@ public:
 	Renderer();
 	virtual ~Renderer();
 
-	void renderSprite(Sprite* sprite);
+	void renderSprite(Sprite* sprite, float posX, float posY);
 	GLFWwindow* window() { return _window; };
 
 private:

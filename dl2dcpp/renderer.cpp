@@ -81,7 +81,7 @@ int Renderer::init()
 	return 0;
 }
 
-void Renderer::renderSprite(Sprite* sprite)
+void Renderer::renderSprite(Sprite* sprite, float posX, float posY)
 {
 	// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
 	computeMatricesFromInputs(_window);
@@ -96,7 +96,7 @@ void Renderer::renderSprite(Sprite* sprite)
 	glUseProgram(programID);
 
 	// Build the Model matrix
-	glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(500.0f, 300.0f, 0.0f));
+	glm::mat4 translationMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(posX, posY, 0.0f));
 	glm::mat4 rotationMatrix = glm::eulerAngleYXZ(0.0f, 0.0f, 0.0f);
 	glm::mat4 scalingMatrix = glm::scale(glm::mat4(1.0f), glm::vec3(1.0f, 1.0f, 1.0f));
 
