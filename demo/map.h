@@ -10,10 +10,6 @@ public:
 	virtual ~Map();
 
 private:
-//	Sprite* tilesheet;
 };
-
-//Sets tiles from tile map
-bool setTiles(Tile *tiles[]);
 
 #endif /* MAP_H */
