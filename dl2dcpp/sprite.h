@@ -22,7 +22,7 @@
 class Sprite
 {
 public:
-	Sprite(std::string filename, int height, int width);
+	Sprite(std::string filename, int height, int width, bool spritesheet, int frames, int cframe);
 	virtual ~Sprite();
 
 	GLuint texture() { return _texture; };

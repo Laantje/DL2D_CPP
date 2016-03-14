@@ -17,7 +17,7 @@
 int main( void )
 {
 	Renderer renderer;
-	Sprite* sprite = new Sprite("assets/testimage.tga", 128, 128);
+	Sprite* sprite = new Sprite("assets/tilesheet.tga", 32, 32, true, 8, 1);
 	//Map* map = new Map();
 
 	do {
