@@ -10,6 +10,7 @@ Renderer::Renderer()
 	fragment_shader = "shaders/sprite.frag";
 	vertex_shader = "shaders/sprite.vert";
 
+	_uberShader = NULL;
 
 	// Initialize
 	init();
@@ -84,6 +85,10 @@ int Renderer::init()
 
 void Renderer::renderSprite(Sprite* sprite, float posX, float posY)
 {
+	Shader* shader = _uberShader;
+	if (shader == NULL) {
+		shader = _resman.getShader(sprite->vertexshader().c_str(), sprite->fragmentshader().c_str());
+	}
 	// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
 	computeMatricesFromInputs(_window);
 
@@ -116,6 +121,7 @@ void Renderer::renderSprite(Sprite* sprite, float posX, float posY)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	// Set our "myTextureSampler" sampler to user Texture Unit 0
 	glUniform1i(textureID, 0);
+	glUniform2f(shader->uvOffsetID(), sprite->uvoffsetx, sprite->uvoffsety);
 
 	// 1st attribute buffer : vertices
 	glEnableVertexAttribArray(vertexPosition_modelspaceID);

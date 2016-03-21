@@ -51,6 +51,8 @@ private:
 	std::string vertex_shader;
 
 	glm::mat4 ProjectionMatrix;
+
+	Shader* _uberShader;
 };
 
 #endif /* RENDERER_H */
