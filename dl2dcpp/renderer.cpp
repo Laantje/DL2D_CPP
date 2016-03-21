@@ -10,6 +10,7 @@ Renderer::Renderer()
 	fragment_shader = "shaders/sprite.frag";
 	vertex_shader = "shaders/sprite.vert";
 
+
 	// Initialize
 	init();
 }
