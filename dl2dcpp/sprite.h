@@ -21,6 +21,8 @@
 
 class Sprite
 {
+	GLfloat g_uv_buffer_data[12];
+
 public:
 	Sprite(std::string filename, int height, int width, bool spritesheet, int frames, int cframe);
 	virtual ~Sprite();
