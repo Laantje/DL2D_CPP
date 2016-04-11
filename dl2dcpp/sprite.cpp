@@ -11,10 +11,12 @@ Sprite::Sprite()
 	_frame = 0;
 }
 
-void Sprite::SetupSprite(std::string filename, int width, int height, float pivotx, float pivoty, float uvwidth, float uvheight)
+void Sprite::SetupSprite(std::string filename, int width, int height, float pivotx, float pivoty, float uvwidth, float uvheight, int f)
 {
 	uvdimx = uvwidth;
 	uvdimy = uvheight;
+
+	this->frame(f);
 
 	std::string texture_file = filename;
 	std::vector<glm::vec3> vertices;
@@ -38,13 +40,13 @@ void Sprite::SetupSprite(std::string filename, int width, int height, float pivo
 	vertices.push_back(glm::vec3(-width * pivotx, -height * pivoty, 0.0f));
 
 	// uvs for first triangle
-	uvs.push_back(glm::vec2(0.0f, uvheight));
-	uvs.push_back(glm::vec2(0.0f, 0.0f));
-	uvs.push_back(glm::vec2(uvwidth, 0.0f));
+	uvs.push_back(glm::vec2(0.0f + uvoffsetx, uvheight + uvoffsety));
+	uvs.push_back(glm::vec2(0.0f + uvoffsetx, 0.0f + uvoffsety));
+	uvs.push_back(glm::vec2(uvwidth + uvoffsetx, 0.0f + uvoffsety));
 	// uvs for second triangle
-	uvs.push_back(glm::vec2(uvwidth, 0.0f));
-	uvs.push_back(glm::vec2(uvwidth, uvheight));
-	uvs.push_back(glm::vec2(0.0f, uvheight));
+	uvs.push_back(glm::vec2(uvwidth + uvoffsetx, 0.0f + uvoffsety));
+	uvs.push_back(glm::vec2(uvwidth + uvoffsetx, uvheight + uvoffsety));
+	uvs.push_back(glm::vec2(0.0f + uvoffsetx, uvheight + uvoffsety));
 
 	this->generateBuffers(vertices, uvs);
 }
@@ -75,6 +77,7 @@ void Sprite::generateBuffers(std::vector<glm::vec3>& vertex, std::vector<glm::ve
 
 int Sprite::frame(int f)
 {
+	f -= 1;
 	int w = 1.0f / uvdimx;
 	int h = 1.0f / uvdimy;
 

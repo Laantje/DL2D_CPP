@@ -87,7 +87,8 @@ void Renderer::renderSprite(Sprite* sprite, float posX, float posY)
 {
 	Shader* shader = _uberShader;
 	if (shader == NULL) {
-		shader = _resman.getShader(sprite->vertexshader().c_str(), sprite->fragmentshader().c_str());
+		//shader = _resman.getShader(sprite->vertexbuffer, sprite->uvbuffer);
+		shader = new Shader();
 	}
 	// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
 	computeMatricesFromInputs(_window);

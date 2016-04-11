@@ -21,7 +21,7 @@ public:
 	virtual ~Tile(); ///< @brief Destructor of an Entity
 
 	Sprite* sprite() { return _sprite; };
-	void addSpriteSheet(const std::string& filename, int u, int v);
+	void addSpriteSheet(const std::string& filename, int u, int v, int f);
 
 private:
 	Sprite* _sprite; ///< @brief The _sprite of this Entity

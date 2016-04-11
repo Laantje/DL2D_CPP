@@ -22,8 +22,8 @@ int main( void )
 	//sprite->frame(56);
 	//sprite->SetupSprite("assets/tilesheet.tga", 32, 32, 0.5f, 0.5f, 0.125f, 0.125f);
 	Tile* tile = new Tile;
-	tile->addSpriteSheet("assets/tilesheet.tga", 8, 8);
-	tile->sprite()->frame(55);
+	tile->addSpriteSheet("assets/tilesheet.tga", 8, 8, 34);
+	//tile->sprite()->frame(2);
 	//Map* map = new Map();
 
 	do {

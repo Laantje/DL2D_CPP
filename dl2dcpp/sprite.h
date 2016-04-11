@@ -19,6 +19,7 @@
 #include <glm/gtx/euler_angles.hpp>
 
 #include <dl2dcpp/texture.h>
+#include <dl2dcpp/shader.h>
 
 class Sprite
 {
@@ -30,6 +31,11 @@ public:
 	GLuint vertexbuffer() { return _vertexbuffer; };
 	GLuint uvbuffer() { return _uvbuffer; };
 
+	std::string fragmentshader() { return _fragmentshader; };
+	std::string vertexshader() { return _vertexshader; };
+	void fragmentshader(std::string fragmentshader) { _fragmentshader = fragmentshader; };
+	void vertexshader(std::string vertexshader) { _vertexshader = vertexshader; };
+
 	float pivotx;
 	float pivoty;
 	float uvdimx;
@@ -40,10 +46,13 @@ public:
 	int frame(int f);
 	int frame() { return _frame; };
 
-	void SetupSprite(std::string filename, int height, int width, float pivotx, float pivoty, float uvwidth, float uvheight);
+	void SetupSprite(std::string filename, int height, int width, float pivotx, float pivoty, float uvwidth, float uvheight, int f);
 
 private:
 	int _frame;
+
+	std::string _fragmentshader;
+	std::string _vertexshader;
 
 	GLuint _texture;
 	GLuint _vertexbuffer;

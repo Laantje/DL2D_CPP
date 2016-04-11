@@ -32,6 +32,9 @@ public:
 	GLFWwindow* window() { return _window; };
 
 private:
+	// Only renderer needs access to the ResourceManager
+	//ResourceManager _resman; ///< @brief The ResourceManager of the Renderer
+
 	int init();
 
 	//Gluints
