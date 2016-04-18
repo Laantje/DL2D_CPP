@@ -59,6 +59,8 @@ add_library(dl2dcpp
 	dl2dcpp/camera.h
 	dl2dcpp/texture.cpp
 	dl2dcpp/texture.h
+	dl2dcpp/resourcemanager.cpp
+	dl2dcpp/resourcemanager.h
 	dl2dcpp/renderer.cpp
 	dl2dcpp/renderer.h
 	dl2dcpp/sprite.cpp

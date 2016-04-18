@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
+#include <iostream>
 
 // Include GLEW
 #include <GL/glew.h>
@@ -19,11 +20,11 @@ int main( void )
 {
 	Renderer renderer;
 	Sprite* sprite = new Sprite();
+	sprite->addSprite("")
 	//sprite->frame(56);
 	//sprite->SetupSprite("assets/tilesheet.tga", 32, 32, 0.5f, 0.5f, 0.125f, 0.125f);
 	Tile* tile = new Tile;
-	tile->addSpriteSheet("assets/tilesheet.tga", 8, 8, 34);
-	//tile->sprite()->frame(2);
+	tile->addSpriteSheet("assets/tilesheet.tga", 8, 8, 57);
 	//Map* map = new Map();
 
 	do {
@@ -31,6 +32,16 @@ int main( void )
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		renderer.renderSprite(tile->sprite(), 600.0f, 500.0f);
+
+		if (glfwGetKey(renderer.window(), GLFW_KEY_UP) == GLFW_PRESS) {
+			std::cout << "Pressed up";
+			//tile->sprite()->frame();
+		}
+
+		if (glfwGetKey(renderer.window(), GLFW_KEY_DOWN) == GLFW_PRESS) {
+			std::cout << "Pressed down";
+			//tile->sprite()->frame();
+		}
 
 		// Swap buffers
 		glfwSwapBuffers(renderer.window());
