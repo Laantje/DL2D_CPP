@@ -1,13 +1,14 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-GLuint loadShaders(const char * vertex_file_path, const char * fragment_file_path);
+
 class Shader 
 {
 public:
 	Shader(); ///< @brief Constructor of the Shader
 	virtual ~Shader(); ///< @brief Destructor of the Shader
 
+	GLuint loadShaders(const char * vertex_file_path, const char * fragment_file_path);
 					   /// @brief get the programID
 					   /// @return GLuint _programID
 	GLuint programID() { return _programID; };

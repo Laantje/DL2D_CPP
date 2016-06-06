@@ -4,7 +4,26 @@
 
 #include "texture.h"
 
-GLuint loadTGA(/*TextureImage *texture, */const char * imagepath)
+Texture::Texture()
+{
+	// these values change after handling pixels
+	_width = 0;
+	_height = 0;
+	_depth = 3;
+
+	this->_gltexture[0] = 0;
+
+	//std::cout << "texture created" << std::endl;
+}
+
+Texture::~Texture()
+{
+	glDeleteTextures(1, &_gltexture[0]);
+
+	//std::cout << "========> Texture deleted" << std::endl;
+}
+
+GLuint Texture::loadTGA(/*TextureImage *texture, */const char * imagepath)
 {
 	GLubyte		TGAheader[12] = { 0,0,2,0,0,0,0,0,0,0,0,0 };	// Uncompressed TGA Header
 	GLubyte		TGAcompare[12];								// Used To Compare TGA Header
@@ -83,9 +102,11 @@ GLuint loadTGA(/*TextureImage *texture, */const char * imagepath)
 	glTexImage2D(GL_TEXTURE_2D, 0, type, width, height, 0, type, GL_UNSIGNED_BYTE, imageData);
 
 	return true;											// Texture Building Went Ok, Return True
+
+	return _gltexture[0];
 }
 
-GLuint loadBMP_custom(const char * imagepath)
+GLuint Texture::loadBMP_custom(const char * imagepath)
 {
 	printf("Reading image %s\n", imagepath);
 
@@ -100,7 +121,7 @@ GLuint loadBMP_custom(const char * imagepath)
 	// Open the file
 	FILE * file = fopen(imagepath,"rb");
 	if (!file) {
-		printf("Can't open %s.\n", imagepath);
+		printf("BMPLOADER: Can't open %s.\n", imagepath);
 		getchar();
 		return 0;
 	}
@@ -199,7 +220,7 @@ GLuint loadBMP_custom(const char * imagepath)
 #define FOURCC_DXT3 0x33545844 // Equivalent to "DXT3" in ASCII
 #define FOURCC_DXT5 0x35545844 // Equivalent to "DXT5" in ASCII
 
-GLuint loadDDS(const char * imagepath)
+GLuint Texture::loadDDS(const char * imagepath)
 {
 	unsigned char header[124];
 
@@ -208,7 +229,7 @@ GLuint loadDDS(const char * imagepath)
 	/* try to open the file */
 	fp = fopen(imagepath, "rb");
 	if (fp == NULL){
-		printf("Can't open %s.\n", imagepath);
+		printf("DDSLOADER: Can't open %s.\n", imagepath);
 		getchar();
 		return 0;
 	}

@@ -2,6 +2,10 @@
 
 Sprite::Sprite()
 {
+	_texturename = AUTOGENWHITE;
+	_fragmentshader = SPRITEFRAGMENTSHADER;
+	_vertexshader = SPRITEVERTEXSHADER;
+
 	pivotx = 0.5f;
 	pivoty = 0.5f;
 	uvdimx = 1.0f;
@@ -13,6 +17,8 @@ Sprite::Sprite()
 
 void Sprite::SetupSprite(std::string filename, int width, int height, float pivotx, float pivoty, float uvwidth, float uvheight, int f)
 {
+	_texturename = filename;
+
 	uvdimx = uvwidth;
 	uvdimy = uvheight;
 
@@ -22,8 +28,10 @@ void Sprite::SetupSprite(std::string filename, int width, int height, float pivo
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 
+	Texture* t = new Texture;
+
 	// Load the texture (see: texture.h/cpp)
-	_texture = loadTGA(texture_file.c_str());
+	_texture = t->loadTGA(texture_file.c_str());
 
 	// Our vertices. Tree consecutive floats give a 3D vertex; Three consecutive vertices give a triangle.
 	// A sprite has 1 face (quad) with 2 triangles each, so this makes 1*2=2 triangles, and 2*3 vertices

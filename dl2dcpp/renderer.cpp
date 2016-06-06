@@ -54,8 +54,8 @@ int Renderer::init()
 	// Ensure we can capture the escape key being pressed below
 	glfwSetInputMode(_window, GLFW_STICKY_KEYS, GL_TRUE);
 
-	// Dark blue background
-	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
+	// Black background
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 
 	// Enable depth test
 	//glEnable(GL_DEPTH_TEST);
@@ -67,7 +67,7 @@ int Renderer::init()
 
 	// Create and compile our GLSL program from the shaders
 	// see: shader.h/cpp
-	programID = loadShaders(vertex_shader.c_str(), fragment_shader.c_str());
+	programID = _uberShader->loadShaders(vertex_shader.c_str(), fragment_shader.c_str());
 
 	// Get a handle for our buffers
 	vertexPosition_modelspaceID = glGetAttribLocation(programID, "vertexPosition_modelspace");
@@ -86,10 +86,17 @@ int Renderer::init()
 void Renderer::renderSprite(Sprite* sprite, float posX, float posY)
 {
 	Shader* shader = _uberShader;
-	if (shader == NULL) {
+	/*if (shader == NULL) {
 		//shader = _resman.getShader(sprite->vertexbuffer, sprite->uvbuffer);
 		shader = new Shader();
+	}*/
+	// ask resourcemanager
+	if (shader == NULL) {
+		shader = _resman.getShader(sprite->vertexshader().c_str(), sprite->fragmentshader().c_str());
 	}
+	Texture* texture = NULL;
+	texture = _resman.getTexture(sprite->texturename().c_str());
+
 	// Compute the ViewMatrix from keyboard and mouse input (see: camera.h/cpp)
 	computeMatricesFromInputs(_window);
 

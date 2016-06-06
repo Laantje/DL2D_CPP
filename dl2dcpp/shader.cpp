@@ -37,7 +37,7 @@ void Shader::_attachID()
 	_uvOffsetID = glGetUniformLocation(_programID, "UVoffset"); // UVoffset uniform in fragment shader
 }
 
-GLuint loadShaders(const char * vertex_file_path, const char * fragment_file_path)
+GLuint Shader::loadShaders(const char * vertex_file_path, const char * fragment_file_path)
 {
 	// Create the shaders
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
@@ -52,8 +52,8 @@ GLuint loadShaders(const char * vertex_file_path, const char * fragment_file_pat
 			VertexShaderCode += "\n" + Line;
 		VertexShaderStream.close();
 	}else{
-		printf("Can't to open %s.\n", vertex_file_path);
-		getchar();
+		printf("Shader: Can't to open %s.\n", vertex_file_path);
+		//getchar();
 		return 0;
 	}
 

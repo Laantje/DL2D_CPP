@@ -17,6 +17,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/euler_angles.hpp>
 
+#include <dl2dcpp/resourcemanager.h>
 #include <dl2dcpp/shader.h>
 #include <dl2dcpp/sprite.h>
 #include <dl2dcpp/texture.h>
@@ -33,7 +34,7 @@ public:
 
 private:
 	// Only renderer needs access to the ResourceManager
-	//ResourceManager _resman; ///< @brief The ResourceManager of the Renderer
+	ResourceManager _resman; ///< @brief The ResourceManager of the Renderer
 
 	int init();
 

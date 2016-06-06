@@ -20,12 +20,12 @@ int main( void )
 {
 	Renderer renderer;
 	Sprite* sprite = new Sprite();
-	sprite->addSprite("")
+	//sprite->addSprite("")
 	//sprite->frame(56);
 	//sprite->SetupSprite("assets/tilesheet.tga", 32, 32, 0.5f, 0.5f, 0.125f, 0.125f);
 	Tile* tile = new Tile;
 	tile->addSpriteSheet("assets/tilesheet.tga", 8, 8, 57);
-	//Map* map = new Map();
+	//Map* map = new Map;
 
 	do {
 		// Clear the screen
@@ -33,7 +33,7 @@ int main( void )
 
 		renderer.renderSprite(tile->sprite(), 600.0f, 500.0f);
 
-		if (glfwGetKey(renderer.window(), GLFW_KEY_UP) == GLFW_PRESS) {
+		/*if (glfwGetKey(renderer.window(), GLFW_KEY_UP) == GLFW_PRESS) {
 			std::cout << "Pressed up";
 			//tile->sprite()->frame();
 		}
@@ -41,7 +41,7 @@ int main( void )
 		if (glfwGetKey(renderer.window(), GLFW_KEY_DOWN) == GLFW_PRESS) {
 			std::cout << "Pressed down";
 			//tile->sprite()->frame();
-		}
+		}*/
 
 		// Swap buffers
 		glfwSwapBuffers(renderer.window());

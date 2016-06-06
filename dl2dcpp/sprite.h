@@ -1,6 +1,10 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
+#define SPRITEVERTEXSHADER "shaders/sprite.vert" ///< vertexshader name
+#define SPRITEFRAGMENTSHADER "shaders/sprite.frag" ///< fragmentshader name
+#define AUTOGENWHITE "#autogen-white-TGA#" ///< auto generated Texture
+
 // Include standard headers
 #include <stdio.h>
 #include <stdlib.h>
@@ -27,6 +31,9 @@ public:
 	Sprite();
 	virtual ~Sprite();
 
+	std::string texturename() { return _texturename; };
+	void texturename(std::string texturename) { _texturename = texturename; };
+
 	GLuint texture() { return _texture; };
 	GLuint vertexbuffer() { return _vertexbuffer; };
 	GLuint uvbuffer() { return _uvbuffer; };
@@ -50,6 +57,8 @@ public:
 
 private:
 	int _frame;
+
+	std::string _texturename;
 
 	std::string _fragmentshader;
 	std::string _vertexshader;
