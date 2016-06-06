@@ -83,6 +83,14 @@ int Renderer::init()
 	return 0;
 }
 
+/*void Renderer::renderMap(Map* map, float posX, float posY, int tWidth, int tHeight)
+{
+	for (int j = 0; j < map->mapWidth; j++) //loop through the width of the map
+	{
+
+	}
+}*/
+
 void Renderer::renderSprite(Sprite* sprite, float posX, float posY)
 {
 	Shader* shader = _uberShader;

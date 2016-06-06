@@ -23,12 +23,15 @@
 #include <dl2dcpp/texture.h>
 #include <dl2dcpp/camera.h>
 
+#include <demo/map.h>
+
 class Renderer
 {
 public:
 	Renderer();
 	virtual ~Renderer();
 
+	//void renderMap(Map* map, float posX, float posY, int tWidth, int tHeight);
 	void renderSprite(Sprite* sprite, float posX, float posY);
 	GLFWwindow* window() { return _window; };
 

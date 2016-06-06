@@ -23,15 +23,16 @@ int main( void )
 	//sprite->addSprite("")
 	//sprite->frame(56);
 	//sprite->SetupSprite("assets/tilesheet.tga", 32, 32, 0.5f, 0.5f, 0.125f, 0.125f);
-	Tile* tile = new Tile;
-	tile->addSpriteSheet("assets/tilesheet.tga", 8, 8, 57);
-	//Map* map = new Map;
+	//Tile* tile = new Tile;
+	//tile->addSpriteSheet("assets/tilesheet.tga", 8, 8, 57);
+	Map* map = new Map;
+	map->drawTiles();
 
 	do {
 		// Clear the screen
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-		renderer.renderSprite(tile->sprite(), 600.0f, 500.0f);
+		//renderer.renderSprite(map, 600.0f, 500.0f);
 
 		/*if (glfwGetKey(renderer.window(), GLFW_KEY_UP) == GLFW_PRESS) {
 			std::cout << "Pressed up";
@@ -51,7 +52,7 @@ int main( void )
 	while (glfwGetKey(renderer.window(), GLFW_KEY_ESCAPE) != GLFW_PRESS &&
 		glfwWindowShouldClose(renderer.window()) == 0);
 
-	delete tile;
+	//delete tile;
 
 	// Close OpenGL window and terminate GLFW
 	glfwTerminate();

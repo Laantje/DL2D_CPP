@@ -41,11 +41,10 @@ int cMap[32][32] = {
 };
 
 Map::Map() {
-	//Sprite* sprite = new Sprite();
-	//sprite->SetupSprite("assets/tilesheet.tga", 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 0);
+	_texturename = "assets/tilesheet.tga";
 
-	Texture* t = new Texture;
-	t->loadTGA("assets/tilesheet.tga");
+	mapWidth = 32;
+	mapHeight = 32;
 }
 
 /*Map::~Map() {
@@ -57,122 +56,150 @@ void Map::drawTiles(void) { //our function to draw the tiles
 	{
 		for (int j = 0; j < 32; j++) //loop through the width of the map
 		{
-			if (cMap[i][j] == 0)
+			/*if (cMap[i][j] == 0)
 			{
 				Tile* grass = new Tile;
+				grass->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 57);
 			}
 			else if (cMap[i][j] == 1)
 			{
 				Tile* tree = new Tile;
+				tree->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 58);
 			}
 			else if (cMap[i][j] == 2)
 			{
 				Tile* stoneD = new Tile;
+				stoneD->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 59);
 			}
 			else if (cMap[i][j] == 3)
 			{
 				Tile* stoneU = new Tile;
+				stoneU->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 60);
 			}
 			else if (cMap[i][j] == 4)
 			{
 				Tile* stoneR = new Tile;
+				stoneR->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 61);
 			}
 			else if (cMap[i][j] == 5)
 			{
 				Tile* stoneL = new Tile;
+				stoneL->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 62);
 			}
 			else if (cMap[i][j] == 6)
 			{
 				Tile* stoneLU = new Tile;
+				stoneLU->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 63);
 			}
 			else if (cMap[i][j] == 7)
 			{
 				Tile* stoneRU = new Tile;
+				stoneRU->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 64);
 			}
 			else if (cMap[i][j] == 8)
 			{
 				Tile* stoneRD = new Tile;
+				stoneRD->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 49);
 			}
 			else if (cMap[i][j] == 9)
 			{
 				Tile* stoneLD = new Tile;
+				stoneLD->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 50);
 			}
 			else if (cMap[i][j] == 10)
 			{
 				Tile* stone = new Tile;
+				stone->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 51);
 			}
 			else if (cMap[i][j] == 11)
 			{
 				Tile* stoneRUC = new Tile;
+				stoneRUC->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 52);
 			}
 			else if (cMap[i][j] == 12)
 			{
 				Tile* stoneLUC = new Tile;
+				stoneLUC->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 53);
 			}
 			else if (cMap[i][j] == 13)
 			{
 				Tile* stoneRDC = new Tile;
+				stoneRDC->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 54);
 			}
 			else if (cMap[i][j] == 14)
 			{
 				Tile* stoneLDC = new Tile;
+				stoneLDC->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 55);
 			}
 			else if (cMap[i][j] == 15)
 			{
 				Tile* dirtR = new Tile;
+				dirtR->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 56);
 			}
 			else if (cMap[i][j] == 16)
 			{
 				Tile* dirtL = new Tile;
+				dirtL->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 41);
 			}
 			else if (cMap[i][j] == 17)
 			{
 				Tile* dirtU = new Tile;
+				dirtU->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 42);
 			}
 			else if (cMap[i][j] == 18)
 			{
 				Tile* dirtD = new Tile;
+				dirtD->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 43);
 			}
 			else if (cMap[i][j] == 19)
 			{
 				Tile* dirtRD = new Tile;
+				dirtRD->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 44);
 			}
 			else if (cMap[i][j] == 20)
 			{
 				Tile* dirtLD = new Tile;
+				dirtLD->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 45);
 			}
 			else if (cMap[i][j] == 21)
 			{
 				Tile* dirtLU = new Tile;
+				dirtLU->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 46);
 			}
 			else if (cMap[i][j] == 22)
 			{
 				Tile* dirtRU = new Tile;
+				dirtRU->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 47);
 			}
 			else if (cMap[i][j] == 23)
 			{
 				Tile* dirtRUC = new Tile;
+				dirtRUC->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 48);
 			}
 			else if (cMap[i][j] == 24)
 			{
-				Tile* stoneU = new Tile;
+				Tile* dirtLUC = new Tile;
+				dirtLUC->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 33);
 			}
 			else if (cMap[i][j] == 25)
 			{
-				Tile* stoneU = new Tile;
+				Tile* dirtLDC = new Tile;
+				dirtLDC->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 34);
 			}
 			else if (cMap[i][j] == 26)
 			{
-				Tile* stoneU = new Tile;
+				Tile* dirtLRC = new Tile;
+				dirtLRC->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 35);
 			}
 			else if (cMap[i][j] == 27)
 			{
-				Tile* stoneU = new Tile;
+				Tile* dirt = new Tile;
+				dirt->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 36);
 			}
-			else //otherwise
+			/*else //otherwise
 			{
 				//glBindTexture(GL_TEXTURE_2D, texture2); //bind our dirt texture to our shape
-			}
+			}*/
 
 			glPushMatrix(); //push the matrix so that our translations only affect
 			glTranslatef(j, -i, 0); //translate the tile to where it should belong
