@@ -3,11 +3,19 @@
 Tile::Tile()
 {
 	_sprite = NULL;
+	_frame = 0;
 }
 
 Tile::~Tile()
 {
 	deleteSprite();
+}
+
+int Tile::frame(int id)
+{
+	_frame = 64 - id;
+
+	return _frame;
 }
 
 void Tile::addSpriteSheet(const std::string& filename, int u, int v, int f)

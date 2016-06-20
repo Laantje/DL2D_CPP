@@ -20,10 +20,14 @@ public:
 	Tile(); ///< @brief Constructor of an Entity
 	virtual ~Tile(); ///< @brief Destructor of an Entity
 
+	int frame(int id);
+	int frame() { return _frame; };
+
 	Sprite* sprite() { return _sprite; };
 	void addSpriteSheet(const std::string& filename, int u, int v, int f);
 
 private:
+	int _frame;
 	Sprite* _sprite; ///< @brief The _sprite of this Entity
 
 	void deleteSprite() {
