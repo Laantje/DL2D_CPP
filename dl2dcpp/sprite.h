@@ -52,11 +52,11 @@ public:
 
 	int frame(int f);
 	int frame() { return _frame; };
+	int _frame;
 
 	void SetupSprite(std::string filename, int height, int width, float pivotx, float pivoty, float uvwidth, float uvheight, int f);
 
 private:
-	int _frame;
 
 	std::string _texturename;
 

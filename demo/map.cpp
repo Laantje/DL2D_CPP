@@ -56,11 +56,12 @@ void Map::drawTiles(void) { //our function to draw the tiles
 	{
 		for (int j = 0; j < 32; j++) //loop through the width of the map
 		{
-			/*if (cMap[i][j] == 0)
+			if (cMap[i][j] == 0)
 			{
 				Tile* grass = new Tile;
 				grass->sprite()->SetupSprite(_texturename, 32, 32, 0.5f, 0.5f, 0.125f, 0.125f, 57);
 			}
+			
 			else if (cMap[i][j] == 1)
 			{
 				Tile* tree = new Tile;
